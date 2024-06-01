@@ -1,5 +1,7 @@
 # API Documentation
 
+[progress spreadsheet of API endpoints](https://docs.google.com/spreadsheets/d/1tYZW-HvLruIddnqtLbJSZXxUWCMPpFg6XOvooHHkb2I/edit#gid=0)
+
 ## USER AUTHENTICATION/AUTHORIZATION
 
 ### All endpoints that require authentication
