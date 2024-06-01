@@ -26,19 +26,20 @@ All endpoints that require a current user to be logged in.
 
 Returns the account info of the current logged in user.
 
--Require Authentiction: true
--Request
+- Require Authentiction: true
+- Request
 
-  -Method: GET
-  -URL: /api/:user_id (maybe change)
-  -Body: none
+  - Method: GET
+  - URL: /api/:user_id (maybe change)
+  - Body: none
 
--Successful Response
+- Successful Response
 
-  -Status Code: 200
-  -Headers:
-    -content-Type: application/json
-  -Body:
+  - Status Code: 200
+  - Headers:
+    - Content-Type: application/json
+  - Body:
+
     ```json
     {
       "user": {
@@ -156,6 +157,7 @@ Logs in a user with valid credentials and returns the current user's information
         "password": "Password is required"
       }
     }
+    ```
 
 ### Register a anew user
 
@@ -199,12 +201,13 @@ Creates a new user, logs them in as current user, then returns current user's in
       }
     ```
 
--Error response: User with email already exists
+- Error response: User with email already exists
 
-  -Status Code: 500
-  -Headers:
+  - tatus Code: 500
+  - Headers:
     - Content-Type: application/json
-  -Body:
+  - Body:
+  
     ```json
     {
       "message": "User already exists",
@@ -214,12 +217,13 @@ Creates a new user, logs them in as current user, then returns current user's in
     }
     ```
 
--Error response: Body validation error
+- Error response: Body validation error
 
-  -Status Code: 400
-  -Headers:
+  - Status Code: 400
+  - Headers:
     - Content-Type: application/json
-  -Body:
+  - Body:
+
     ```json
     {
      "message": "Bad Request",
