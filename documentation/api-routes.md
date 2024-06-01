@@ -163,7 +163,7 @@ Creates a new user, logs them in as current user, then returns current user's in
 - Request
 
   - Method: POST
-  - URL: /api/auth/login
+  - URL: /api/auth/signup
   - Headers:
     - Content-Type: application/json
   - Body:
@@ -197,7 +197,7 @@ Creates a new user, logs them in as current user, then returns current user's in
       }
     ```
 
--Error response: User with email already exists 
+-Error response: User with email already exists
 
   -Status Code: 500
   -Headers:
