@@ -54,19 +54,18 @@ Returns the account info of the current logged in user.
 
 Returns the information about a single user by ID
 
--Require Authentiction: false
--Request
+- Require Authentiction: false
+- Request
+  - Method: GET
+  - URL: /api/users/:user_id
+  - Body: none
 
-  -Method: GET
-  -URL: /api/users/:user_id
-  -Body: none
+- Successful Response: User found
+  - Status Code: 200
+  - Headers:
+    - Content-Type: application/json
+  - Body:
 
--Successful Response: User found
-
-  -Status Code: 200
-  -Headers:
-    -content-Type: application/json
-  -Body:
     ```json
     {
       "user": {
@@ -78,12 +77,13 @@ Returns the information about a single user by ID
     }
     ```
 
--Error Responcse: Couldn't find a user with that ID
+- Error Responcse: Couldn't find a user with that ID
 
-  -Status Code: 200
-  -Headers:
-    -content-Type: application/json
-  -Body:
+  - Status Code: 200
+  - Headers:
+    - Content-Type: application/json
+  - Body:
+
     ```json
       {
         "message": "No user found"
