@@ -18,25 +18,55 @@ const createTables = async () => {
     id UUID PRIMARY KEY,
     username VARCHAR(500) UNIQUE,
     email VARCHAR(500) UNIQUE,
-    password VARCHAR(500) NOT NULL
+    password VARCHAR(500) NOT NULL,
+    imgUrl VRCHAR,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
   );
+  CREATE TABLE follows {
+    id UUID PRIMARY KEY,
+    following_user_id UUID REFERENCES users(id) NOT NULL,
+    followed_user_id UUID REFERENCES users(id) NOT NULL,
+    created_at TIMESTAMP
+  };
   CREATE TABLE posts (
     id UUID PRIMARY KEY,
     user_id REFERENCES users(id) NOT NULL,
     title VARCHAR(500) NOT NULL,
-    details TEXT,
-    img_url VARCHAR(900)
+    body TEXT,
+    img_url VARCHAR(900),
+    created_at TIMESTAMP
   );
-  CREATE TABLE comments (
+  CREATE TABLE listings(
+    id UUID PRIMARY KEY,
+    user_id REFERENCES users(id) NOT NULL,
+    title VARCHAR(500) NOT NULL,
+    body TEXT,
+    img_url VARCHAR(900),
+    zipcode INT,
+    created_at TIMESTAMP
+  );
+  CREATE TABLE post_comments (
     id UUID PRIMARY KEY,
     user_id REFERENCES users(id) NOT NULL,
     post_id REFERENCES posts(id) NOT NULL,
-    details TEXT NOT NULL,
-    img_url VARCHAR(900)
+    body TEXT NOT NULL,
+    img_url VARCHAR(900),
+    created_at TIMESTAMP
+  );
+  CREATE TABLE listing_comments (
+    id UUID PRIMARY KEY,
+    user_id REFERENCES users(id) NOT NULL,
+    listing_id REFERENCES listings(id) NOT NULL,
+    body TEXT NOT NULL,
+    img_url VARCHAR(900),
+    created_at TIMESTAMP
   );
   `;
   await client.query(SQL);
 }
+
+createTables()
 
 module.exports = { 
   dropTables,
